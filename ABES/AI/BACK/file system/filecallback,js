@@ -9,5 +9,4 @@ const read =() =>{
         }
     });
 }
-read();
-console.log("Complete me first");
+module.exports=read;
