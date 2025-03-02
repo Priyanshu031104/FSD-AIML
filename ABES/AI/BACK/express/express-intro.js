@@ -6,6 +6,11 @@ app.get('/',(req,res) => {
     res.send("Welcome to Express")
 });
 // http://localhost:3000/api/priyanshu/9011
+app.post('/users',(req, res) => {
+    const {name} = req.body;
+    res.send(`My name is ${name}`)
+});
+
 app.get('/api/:name/:rollno', (req,res) =>{
     try{
       const {name,rollno} = req.params;
