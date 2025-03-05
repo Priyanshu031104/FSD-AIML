@@ -1,16 +1,18 @@
 import express from 'express';
-const users =[{
-    id: 1,
-    name: "Mithun",
-    email: "pandeymirtunjay@gmail.com"
-}]
+import fs from 'fs/promises'
 const app = express();
-const port = 3000;
-app.use(express.json()); // built in middleware
+const port = 3001;
+// app.use(express.json()); // built in middleware
 
-app.get("/", (req, res) => {
-    res.send("Welcome to my API");
-});
+// app.get("/", (req, res) => {
+//     res.send("Welcome to my  2nd API");
+// });
+
+app.get("/api", (req, res) => {
+    const data = fs.readFile("./user.json", "utf-8");
+    const user = JSON.parse(data);
+    res.send(user)
+})
 
 app.get("/getusers", (req, res) => {
     res.send(users);
